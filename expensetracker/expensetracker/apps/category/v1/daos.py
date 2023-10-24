@@ -4,7 +4,6 @@ from esmerald import AsyncDAOProtocol
 from esmerald.exceptions import NotFound, ValidationErrorException
 from saffier.exceptions import DoesNotFound, ValidationError
 
-from expensetracker.apps.base_enum import TrxType
 from account.v1.models import User
 from transaction.v1.models import Transaction
 from .models import TrxCategory
