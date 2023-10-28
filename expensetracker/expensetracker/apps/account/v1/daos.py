@@ -11,12 +11,18 @@ from .schemas import UserOutSchema
 class UserDAO(AsyncDAOProtocol):
     model: User = User
 
-    async def create(self, **kwargs: Any) -> User:
+    async def create(self, **kwargs: Any) -> UserOutSchema:
         """
         Creates a user in the system
         """
         try:
-            return self.model.query.create_user(**kwargs)
+            db_user = await self.model.query.create_user(**kwargs)
+            return UserOutSchema(
+                id=db_user.id,
+                username=db_user.username,
+                first_name=db_user.first_name,
+                last_name=db_user.last_name
+            )
         except UniqueViolationError as e:
             raise ValueError(str(e)) from e
 

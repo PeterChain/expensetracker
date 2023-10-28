@@ -1,7 +1,5 @@
-from typing import Any, Coroutine
+from starlette.types import ASGIApp
 from esmerald.contrib.auth.saffier.middleware import JWTAuthMiddleware
-from esmerald.middleware.authentication import AuthResult
-from starlette.requests import HTTPConnection
 
 from apps.account.v1.models import User
 from esmerald.conf import settings

@@ -19,7 +19,7 @@ from esmerald import Include
 from .middleware.authentication import CustomJWTMidleware
 
 route_patterns = [
-    Include(namespace='account.v1.urls', name="account", path="/account/"),
+    Include(namespace='account.v1.urls', name="account", path="/account"),
     Include(namespace='category.v1.urls', name="category", path="/category/", middleware=[CustomJWTMidleware]),
     Include(namespace='transaction.v1.urls', name="transaction", path="/transaction", middleware=[CustomJWTMidleware]),
     Include(namespace='reporting.v1.urls', name="reporting", path="/reporting", middleware=[CustomJWTMidleware]),
